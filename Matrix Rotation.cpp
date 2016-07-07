@@ -8,21 +8,27 @@ using namespace std;
 
 int main() {
     int x,y,n,m;
-    long long int R;
+    long long int k;
     cin>>n>>m;
-    cin>>R;
+    cin>>k;
     x=n,y=m;
     int a[400][400];
     for(int i=0;i<n;i++)
         for(int j=0;j<m;j++)
         cin>>a[i][j];
+        
+        
+    //rotation
+       
+    int R=k;
+
     int i=0,row=0,col=0;
         n=x;m=y;
     while(row<n && col<m){
-       int k=R;
+       k=R;
         if(row+1==n || col+1==m)break;
         
-        //layers
+        //layer i
          int l=(n-row-1)+(n-row-2)+(m-col)+(m-col-1);
         if(l<k)
             k=k%l;
@@ -44,8 +50,11 @@ int main() {
         }
         a[row+1][col]=temp;        
         }
+        
+        
         row++;col++;
         n--;m--;
+        //cout<<n<<" "<<m<<endl;
     }
     for(int i=0;i<x;i++){
         for(int j=0;j<y;j++){
@@ -53,5 +62,8 @@ int main() {
         }
         cout<<endl;    
         }
+    //cout<<endl;
+        
+    
     return 0;
 }

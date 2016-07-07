@@ -1,5 +1,26 @@
+#include <map>
+#include <set>
+#include <list>
 #include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
 #include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
 using namespace std;
 int check(int a[],int n){
     int flag=0;
@@ -22,8 +43,13 @@ int main(){
             cin>>a[i];
             b[i]=i+1;
         }
+        
+        //code for Too Chaotic
+        
+        
         int flag,done=0;
-        for(int k=0;k<2;k++){
+        for(int k=0;k<3;k++){
+            //cout<<"loop "<<k<<endl;
             for(int j=n-1;j>0;j--){
              
                 if(a[j]<a[j-1]){   
@@ -34,16 +60,23 @@ int main(){
                     a[j-1]=temp;
                     c++;
                 }
+               /* for(int m=0;m<n;m++)
+                    cout<<a[m]<<" ";
+                cout<<endl;
+                */
                 flag=check(a,n);
+            //cout<<"flag value : "<<flag<<endl;
                 if(flag==0)break;
                 if(done==1)break;
             }  
              if(flag==0)break;
             if(done==1)break;
         }
+        
         if(done==1)cout<<"Too chaotic"<<endl;
         else
             cout<<c<<endl;
+        //if(flag==0)cout<<c<<endl;      
     }
     return 0;
 }
